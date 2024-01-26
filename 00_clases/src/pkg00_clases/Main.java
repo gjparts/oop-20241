@@ -42,6 +42,33 @@ public class Main {
         System.out.println("Genero de p3: "+p3.genero);
         System.out.println("Pais de p3: "+p3.pais);
         
+        Carro c1 = new Carro("Honda", "Civic", "Negro", 2004);
+        //debe mandar los 4 param: Carro c2 = new Carro("","");
+        Carro c3 = new Carro("Nissan", "Sentra", 2005);
+        System.out.println("Color de c3: "+c3.color);
+        c3.color = "Blanco";
+        System.out.println("Color de c3: "+c3.color);
+        
+        Producto pr1 = new Producto("CC01", "Coca Cola 3L", "Cerveceria HN", 5);
+        System.out.println("********************************");
+        System.out.println("Codigo de pr1: "+pr1.codigo);
+        System.out.println("Nombre de pr1: "+pr1.nombre);
+        System.out.println("Fabricante de pr1: "+pr1.fabricante);
+        System.out.println("Existencias de pr1: "+pr1.existencias);
+        System.out.println("pr1 es Importado? "+pr1.importado);
+        
+        Producto pr2 = new Producto("T01", "Tomate Unidad", "FRUVETSA", 100, true);
+        System.out.println("********************************");
+        System.out.println("Codigo de pr2: "+pr2.codigo);
+        System.out.println("Nombre de pr2: "+pr2.nombre);
+        System.out.println("Fabricante de pr2: "+pr2.fabricante);
+        System.out.println("Existencias de pr2: "+pr2.existencias);
+        System.out.println("pr2 es Importado? "+pr2.importado);
+        
+        System.out.println("********************************");
+        //puede cambiar el atributo de importado para pr1 desde fuera del constructor
+        pr1.importado = true;
+        System.out.println("pr1 es Importado? "+pr1.importado);
     }
     
 }
