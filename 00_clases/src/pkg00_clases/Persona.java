@@ -31,4 +31,12 @@ public class Persona {
         this.genero = genero;
         this.pais = pais;
     }
+    //metodos
+    public void imprimir(boolean enIngles){
+        System.out.println("***** "+(enIngles == true ? "PROFILE" : "PERFIL")+" *****");
+        System.out.println((enIngles == true ? "Name" : "Nombre")+": "+this.nombre);
+        System.out.println((enIngles == true ? "Age" : "Edad")+": "+this.edad);
+        System.out.println((enIngles == true ? "Gender" : "Genero")+": "+this.genero);
+        System.out.println((enIngles == true ? "Country" : "Pais")+": "+this.pais);
+    }
 }

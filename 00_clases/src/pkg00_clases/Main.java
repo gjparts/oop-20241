@@ -44,7 +44,7 @@ public class Main {
         
         Carro c1 = new Carro("Honda", "Civic", "Negro", 2004);
         //debe mandar los 4 param: Carro c2 = new Carro("","");
-        Carro c3 = new Carro("Nissan", "Sentra", 2005);
+        Carro c3 = new Carro("Nissan", "Sentra", 2022);
         System.out.println("Color de c3: "+c3.color);
         c3.color = "Blanco";
         System.out.println("Color de c3: "+c3.color);
@@ -69,6 +69,15 @@ public class Main {
         //puede cambiar el atributo de importado para pr1 desde fuera del constructor
         pr1.importado = true;
         System.out.println("pr1 es Importado? "+pr1.importado);
+        
+        //usar metodos
+        c1.imprimir();
+        c3.imprimir();
+        System.out.println("c1 paga ecoTasa? "+c1.pagaEcoTasa());
+        System.out.println("c3 paga ecoTasa? "+c3.pagaEcoTasa());
+        
+        p1.imprimir(false);
+        p1.imprimir(true);
     }
     
 }
