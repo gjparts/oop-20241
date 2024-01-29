@@ -78,6 +78,11 @@ public class Main {
         
         p1.imprimir(false);
         p1.imprimir(true);
+        
+        Empleado e1 = new Empleado("Gerardo", 18, 'M', 'C', 'P', 2000);
+        e1.setEdad(42);
+        System.out.println("La edad de e1 es "+e1.getEdad());
+        
     }
     
 }
