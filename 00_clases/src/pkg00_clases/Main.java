@@ -82,6 +82,10 @@ public class Main {
         Empleado e1 = new Empleado("Gerardo", 18, 'M', 'C', 'P', 2000);
         e1.setEdad(42);
         System.out.println("La edad de e1 es "+e1.getEdad());
+        e1.setSalario(3000);
+        e1.setEdad(41);
+        e1.setEstadoCivil('D');
+        e1.setContrato('T');
         
     }
     
