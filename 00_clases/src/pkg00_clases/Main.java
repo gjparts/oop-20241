@@ -86,6 +86,7 @@ public class Main {
         e1.setEdad(41);
         e1.setEstadoCivil('D');
         e1.setContrato('T');
+        e1.imprimir();
         
     }
     

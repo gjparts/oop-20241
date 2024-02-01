@@ -83,6 +83,16 @@ public class Empleado {
         return this.genero;
     }
     /**
+     * Retorna la descripcion del genero del empleado
+     * @return un valor String
+     */
+    public String getGeneroDescripcion(){
+        if( this.genero == 'M' ) return "Masculino";
+        if( this.genero == 'F' ) return "Femenino";
+        if( this.genero == 'X' ) return "Otros";
+        return "No determinado";
+    }
+    /**
      * Establece el estado civil
      * @param estadoCivil un valor char que puede ser:
      *                      S soltero
@@ -106,6 +116,18 @@ public class Empleado {
         return this.estadoCivil;
     }
     /**
+     * Retorna la descripción del estado civil del empleado
+     * @return un valor String
+     */
+    public String getEstadoCivilDescripcion(){
+        if( this.estadoCivil == 'S' ) return "Soltero";
+        if( this.estadoCivil == 'C' ) return "Casado";
+        if( this.estadoCivil == 'D' ) return "Divorciado";
+        if( this.estadoCivil == 'V' ) return "Viudo";
+        if( this.estadoCivil == 'U' ) return "Unión Libre";
+        return "No definido";
+    }
+    /**
      * Establece el tipo de contrato
      * @param contrato un valor char que puede ser P para permanente, T para temporal
      */
@@ -123,15 +145,24 @@ public class Empleado {
         return this.contrato;
     }
     /**
+     * Retorna la descripcion del tipo de contrato
+     * @return un valor String
+     */
+    public String getContratoDescripcion(){
+        if( this.contrato == 'P' ) return "Permanente";
+        if( this.contrato == 'T' ) return "Temporal";
+        return "No determinado";
+    }
+    /**
      * Imprime el perfil del empleado
      */
     public void imprimir(){
         System.out.println("********** PERFIL **********");
         System.out.println("Nombre: "+this.nombre);
         System.out.println("Edad: "+this.edad);
-        System.out.println("Género: "+this.genero);
-        System.out.println("Estado Civil: "+this.estadoCivil);
-        System.out.println("Contrato: "+this.contrato);
+        System.out.println("Género: "+this.getGeneroDescripcion());
+        System.out.println("Estado Civil: "+this.getEstadoCivilDescripcion());
+        System.out.println("Contrato: "+this.getContratoDescripcion());
         System.out.println("Salario: "+this.salario);
     }
 }
