@@ -14,34 +14,30 @@ public class Factura {
     //multiplicidad: coleccion de elementos repetitivos
     private Producto[] productos;
     //constructor
-    public Factura(int numero, Calendar fecha, Cliente cliente,
-            Producto producto1) {
-        //validar que producto1 venga
-        if( producto1 == null )
-            throw new IllegalArgumentException("producto1 no puede ser null");
-        else
-            this.producto1 = producto1; //se acepta
+    public Factura(int numero, Calendar fecha, Cliente cliente, Producto[] productos) {
+        //al menos el primer producto debe venir lleno
+        //como es un arreglo primero validamos que no sea null y segundo que
+        //al menos traiga un item y tercero que el primer item no sea null
+        if( productos == null )
+            throw new IllegalArgumentException("Arreglo de productos no puede ser null");
+        else{
+            if( productos.length == 0 )
+                throw new IllegalArgumentException("productos debe tener al menos un item");
+            else{
+                if( productos[0] == null )
+                    throw new IllegalArgumentException("primer item de productos no debe ser null");
+                else
+                    this.productos = productos; //se acepta
+            }
+        }
         
         this.numero = numero;
         this.fecha = fecha;
-        this.cliente = cliente;
-        //como buena practica, inicializar los productos del 2 al 4 como null
-        this.producto2 = null;
-        this.producto3 = null;
-        this.producto4 = null;
+        this.cliente = cliente;        
     }
     //metodos
-    public Producto getProducto1() {
-        return this.producto1;
-    }
-    public Producto getProducto2() {
-        return this.producto2;
-    }
-    public Producto getProducto3() {
-        return this.producto3;
-    }
-    public Producto getProducto4() {
-        return this.producto4;
+    public Producto[] getProductos() {
+        return this.productos;
     }
     public void imprimir(){
         System.out.println("****** Factura ******");
@@ -64,23 +60,16 @@ public class Factura {
         //productos
         float subtotal = 0.00f;
         System.out.println("Producto\tPrecio");
-        //desde el constructor nos aseguramos que producto1 viene lleno
-        System.out.println(this.producto1.nombre+"\t"+this.producto1.precioVenta);
-        subtotal += this.producto1.precioVenta;
+        //recorrer la coleccion de productos
+        for( int i = 0; i < this.productos.length; i++ ){
+            //imprimir solo aquellos item que no sean nulos
+            if( this.productos[i] != null ){
+                //desde el constructor nos aseguramos que producto1 viene lleno
+                System.out.println(this.productos[i].nombre+"\t"+this.productos[i].precioVenta);
+                subtotal += this.productos[i].precioVenta;
+            }
+        }
         
-        //productos del 2 al 4 si viene null no se consideran
-        if( producto2 != null ){
-            System.out.println(this.producto2.nombre+"\t"+this.producto2.precioVenta);
-            subtotal += this.producto2.precioVenta;
-        }
-        if( producto3 != null ){
-            System.out.println(this.producto3.nombre+"\t"+this.producto3.precioVenta);
-            subtotal += this.producto3.precioVenta;
-        }
-        if( producto4 != null ){
-            System.out.println(this.producto4.nombre+"\t"+this.producto4.precioVenta);
-            subtotal += this.producto4.precioVenta;
-        }
         //sumario
         System.out.println("\nSubtotal: "+subtotal);
         System.out.println("ISV 15%: "+subtotal*0.15f);

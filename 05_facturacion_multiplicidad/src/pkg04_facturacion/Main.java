@@ -30,25 +30,28 @@ public class Main {
         Producto p03 = new Producto("Banano", cp02, 5);
         Producto p04 = new Producto("Papa LB", cp03, 14);
         
-        Factura f01 = new Factura(1, null, null, p02);
+        //hacer el array de productos aparte
+        Producto arr1[] = { p02 };
+        Factura f01 = new Factura(1, null, null, arr1);
         f01.imprimir();
         
+        //hacer el array de productos aparte
+        Producto arr2[] = { p01, p04, p04, p03, p04, p01, p02, p02 };
         Factura f02 = new Factura(2, Calendar.getInstance(),
-                new Cliente("Alguien", 111, 0, ""), p01);
+                new Cliente("Alguien", 111, 0, ""), arr2);
         f02.imprimir();
         
         Calendar fecha1 = Calendar.getInstance();
         fecha1.set(2024, 1, 7,8,10,0);
-        Factura f03 = new Factura(3, fecha1, c01, p02);
-        f03.producto2 = p04;
-        f03.producto3 = p04;
-        f03.producto4 = p03;
+        //podemos crear el array dentro del parametro del constructor
+        Factura f03 = new Factura(3, fecha1, c01, new Producto[]{ p02, p01, p04 } );
         f03.imprimir();
         
         Calendar fecha2 = Calendar.getInstance();
         fecha2.set(2024, 1,6,11,45,55);
-        Factura f04 = new Factura(4, fecha2, null, p02);
-        f04.producto3 = p01;
+        //hacer el array de productos aparte
+        Producto arr3[] = { p02, null, null, p01, null, p03 };
+        Factura f04 = new Factura(4, fecha2, null, arr3);
         f04.imprimir();
     }
     
