@@ -4,6 +4,7 @@ package pkg06_multiplicidad;
  * Define a una persona en este sistema
  * @author Gerardo Portillo
  */
+import java.util.LinkedList; //lista vinculada
 public class Persona {
     //atributos
     public String identidad;
@@ -12,6 +13,8 @@ public class Persona {
     public Direccion direccion;
     public Empresa empresaLabora;
     public Mascota[] mascotas;
+    public LinkedList<Diploma> diplomas; //lista vinculada que solo
+                                         //acepta objetos de clase Diploma
     //constructor
     public Persona(String identidad, String nombre, int telefono) {
         this.identidad = identidad;
@@ -21,6 +24,8 @@ public class Persona {
         this.direccion = null;
         this.empresaLabora = null;
         this.mascotas = null;
+        //inicializar la lista vinculada de diplomas
+        this.diplomas = new LinkedList();
     }
     //imprimir
     public void imprimir(){
@@ -52,6 +57,17 @@ public class Persona {
                 if( mascotas[i] != null ){
                     System.out.println("\tNombre: "+this.mascotas[i].nombre);
                     System.out.println("\tEspecie: "+this.mascotas[i].especie);
+                    System.out.println();
+                }
+            }
+        }
+        //imprimir la lista vinculada de diplomas
+        if( this.diplomas != null ){
+            if( this.diplomas.size() > 0 ) System.out.println("Diplomas:");
+            for( int i = 0; i < this.diplomas.size(); i++ ){
+                if( this.diplomas.get(i) != null ){
+                    System.out.println("\tInstitucion: "+this.diplomas.get(i).institucion);
+                    System.out.println("\tNombre: "+this.diplomas.get(i).nombre);
                     System.out.println();
                 }
             }
