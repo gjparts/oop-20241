@@ -12,7 +12,10 @@ public class Main {
         Mascota m1 = new Mascota("Misingo", "Gato");
         Mascota m2 = new Mascota("Cheems","Perro");
         
+        Persona p3 = new Persona("1111","Irene",22222222);
+        
         Persona p1 = new Persona("1234", "Gerardo", 99159915);
+        p1.conyuge = p3;
         p1.direccion = new Direccion(aurora);
         p1.direccion.calle = "15";
         p1.direccion.avenida = "10";
@@ -25,7 +28,21 @@ public class Main {
         p1.diplomas.add(di1);
         p1.diplomas.add(di2);
         
+        p3.direccion = p1.direccion;
+        
+        Persona p4 = new Persona("123456", "Josue", 0);
+        p1.hijos.add(p4);
+        p1.hijos.add(null);
+        p1.hijos.add( new Persona("67890","Viena",0) );
+        
         p1.imprimir();
+        System.out.println(p3.direccion.getColonia().nombre);
+        System.out.println("la identidad de Viena es: "+p1.hijos.get(2).identidad);
+        
+        p1.direccion.casa = "56";
+        System.out.println(p3.direccion.casa);
+        p3.direccion.casa = "0816";
+        System.out.println(p1.direccion.casa);
         
         Persona p2 = new Persona("77777","Filomeno Colinas",78787878);
         p2.imprimir();

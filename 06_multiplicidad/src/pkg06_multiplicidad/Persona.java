@@ -15,6 +15,8 @@ public class Persona {
     public Mascota[] mascotas;
     public LinkedList<Diploma> diplomas; //lista vinculada que solo
                                          //acepta objetos de clase Diploma
+    public Persona conyuge;
+    public LinkedList<Persona> hijos;
     //constructor
     public Persona(String identidad, String nombre, int telefono) {
         this.identidad = identidad;
@@ -26,6 +28,9 @@ public class Persona {
         this.mascotas = null;
         //inicializar la lista vinculada de diplomas
         this.diplomas = new LinkedList();
+        
+        this.conyuge = null;
+        this.hijos = new LinkedList();
     }
     //imprimir
     public void imprimir(){
@@ -33,6 +38,13 @@ public class Persona {
         System.out.println("Nombre: "+this.nombre);
         System.out.println("Identidad: "+this.identidad);
         System.out.println("Telefono: "+this.telefono);
+        
+        if( this.conyuge != null ){
+            System.out.println("Conyuge: "+this.conyuge.nombre);
+            System.out.println("\tIdentidad: "+this.conyuge.identidad);
+            System.out.println("\tTelefono: "+this.conyuge.telefono);
+        }
+        
         if( this.direccion != null ){
             System.out.println("Dirección:");
             System.out.println("\tColonia: "+this.direccion.getColonia().nombre);
@@ -49,6 +61,15 @@ public class Persona {
             System.out.println("\tAve.: "+this.empresaLabora.getDireccion().avenida);
             System.out.println("\tBloque: "+this.empresaLabora.getDireccion().bloque);
             System.out.println("\tCasa: "+this.empresaLabora.getDireccion().casa);
+        }
+        //imprimir la lista de hijos
+        if( this.hijos != null ){
+            if( this.hijos.size() > 0 ) System.out.println("Hijos:");
+            for(int i = 0; i < this.hijos.size(); i++){
+                if( this.hijos.get(i) != null ){
+                    System.out.println("* "+this.hijos.get(i).nombre);
+                }
+            }
         }
         //imprimir el array de mascotas
         if( this.mascotas != null ){
