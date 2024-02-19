@@ -16,5 +16,16 @@ public class Main {
         em1.saludar();
         em1.trabajar();
         System.out.println("mi salario es "+em1.salario);
+        System.out.println("********************");
+        Practicante pr1 = new Practicante("Obama", 25, 2);
+        pr1.saludar();
+        pr1.trabajar();
+        System.out.println("La edad de pr1 es "+pr1.edad);
+        System.out.println("El genero de pr1 es "+pr1.genero);
+        System.out.println("********************");
+        Catedratico c1 = new Catedratico("Julio Profe", 45, 'M', "Matematico", 50000);
+        c1.saludar();
+        c1.trabajar();
+        c1.educar();
     }    
 }

@@ -1,5 +1,4 @@
 package pkg07_herencia1;
-
 /**
  * Define a un estudiante
  * Estudiante hereda de Persona
@@ -12,7 +11,7 @@ public class Estudiante extends Persona {
     //constructor
     public Estudiante(String nombre, String cuenta, String carrera){
         //importante: construir la Super clase desde
-        //el constructor de la super clase
+        //el constructor de la clase hijo
         super(nombre, 0, 'N');
         //atributos de la clase hijo
         this.cuenta = cuenta;
