@@ -18,5 +18,13 @@ public class Animal {
         this.tieneCola = tieneCola;
     }
     //metodos
-    //AQUI CONTINUAREMOS
+    public void imprimir(){
+        System.out.println("***** "+this.nombre+" *****");
+        System.out.println("Especie: "+this.especie);
+        System.out.println("Numero de patas: "+this.patas);
+        System.out.println("Tiene cola: "+( this.tieneCola ? "Si" : "No" ) );
+    }
+    public void hablar(){
+        System.out.println(this.nombre+" se comunica.");
+    }
 }
